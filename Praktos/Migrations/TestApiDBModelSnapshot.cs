@@ -129,6 +129,27 @@ namespace Praktos.Migrations
                     b.ToTable("Genres");
                 });
 
+            modelBuilder.Entity("Praktos.Model.Photos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("File")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("Praktos.Model.Readers", b =>
                 {
                     b.Property<int>("Id_Readers")

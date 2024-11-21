@@ -12,8 +12,8 @@ using Praktos.DatabaseContext;
 namespace Praktos.Migrations
 {
     [DbContext(typeof(TestApiDB))]
-    [Migration("20241018145949_cxz")]
-    partial class cxz
+    [Migration("20241031234046_adasddc")]
+    partial class adasddc
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -130,6 +130,27 @@ namespace Praktos.Migrations
                     b.HasKey("Id_Genres");
 
                     b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("Praktos.Model.Photos", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("File")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Photos");
                 });
 
             modelBuilder.Entity("Praktos.Model.Readers", b =>
